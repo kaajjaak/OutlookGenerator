@@ -1,3 +1,4 @@
 accounts.txt
 wireguard_configs/*
 .env
+.txt
