@@ -2,3 +2,6 @@ accounts.txt
 wireguard_configs/*
 .env
 .txt
+.idea
+venv
+*/__pycache__

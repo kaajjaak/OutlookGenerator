@@ -34,7 +34,7 @@ while True:
     connection = start_random_connection()
 
     # Create and start 3 threads to run the create_account_and_close_connection function
-    threads = [threading.Thread(target=create_account) for _ in range(3)]
+    threads = [threading.Thread(target=create_account) for _ in range(8)]
 
     for t in threads:
         t.start()
@@ -48,10 +48,6 @@ while True:
             close_driver(driver)
         except Exception as e:
             print(e)
-            try:
-                quit_driver(driver)
-            except Exception as e:
-                print(e)
     try:
         close_connection(connection)
     except Exception as e:

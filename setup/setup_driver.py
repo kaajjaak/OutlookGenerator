@@ -24,7 +24,7 @@ options.add_argument("disable-blink-features=AutomationControlled")
 extension_path = r"./NopeCHA-CAPTCHA-Solver.crx"  # Replace with the correct path to your extension's CRX file
 options.add_extension(extension_path)
 
-extension_path_2 = r"./mullvad.crx"  # Replace with the correct path to your extension's CRX file
+extension_path_2 = r"./dist.crx"  # Replace with the correct path to your extension's CRX file
 options.add_extension(extension_path_2)
 
 # Create the Chrome WebDriver with the specified profile

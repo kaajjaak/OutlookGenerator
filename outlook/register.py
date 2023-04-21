@@ -43,11 +43,13 @@ def save_account(driver, username, password):
     except TimeoutException:
         try:
             wait = WebDriverWait(driver, 30)
-            wait.until(EC.presence_of_element_located((By.ID, 'id__0')))
-            driver.find_element(By.ID, 'id__0').click()
-            wait = WebDriverWait(driver, 3)
-            wait.until(EC.element_to_be_clickable((By.ID, 'idSIButton9')))
-            add_account(f"{username}@outlook.com", password)
+            try:
+                wait.until(EC.presence_of_element_located((By.ID, 'id__0')))
+                driver.find_element(By.ID, 'id__0').click()
+            except TimeoutException:
+                wait = WebDriverWait(driver, 3)
+                wait.until(EC.element_to_be_clickable((By.ID, 'idSIButton9')))
+                add_account(f"{username}@outlook.com", password)
         except Exception as e:
             print(e)
 
