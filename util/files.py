@@ -14,6 +14,7 @@ def add_account(email, password):
     with open(filename, 'a') as file:
         file.write(f"{email}:{password}\n")
 
+
 def random_connection():
     folder_path = r"C:\Users\Jaak\Desktop\NERD\OutlookGenerator\wireguard_configs"
 

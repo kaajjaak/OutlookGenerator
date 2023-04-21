@@ -3,7 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
-from util.generator import generate_username, generate_password, generate_names
+from util.generator import generate_names
 import random
 from util.files import add_account
 
@@ -36,14 +36,28 @@ def signup(driver, username, password):
     driver.find_element(By.ID, 'iSignupAction').click()
 
 
-def save_and_close(driver, username, password):
-    wait = WebDriverWait(driver, 3)
+def save_account(driver, username, password):
+    wait = WebDriverWait(driver, 5)
     try:
         wait.until(EC.presence_of_element_located((By.ID, 'wlspispHipControlButtonsContainer')))
     except TimeoutException:
-        wait = WebDriverWait(driver, 30)
-        wait.until(EC.element_to_be_clickable((By.ID, 'idSIButton9')))
-        add_account(f"{username}@outlook.com", password)
-    finally:
+        try:
+            wait = WebDriverWait(driver, 30)
+            wait.until(EC.presence_of_element_located((By.ID, 'id__0')))
+            driver.find_element(By.ID, 'id__0').click()
+            wait = WebDriverWait(driver, 3)
+            wait.until(EC.element_to_be_clickable((By.ID, 'idSIButton9')))
+            add_account(f"{username}@outlook.com", password)
+        except Exception as e:
+            print(e)
+
+
+def close_driver(driver):
+    try:
         driver.close()
-        driver.quit()
+    except Exception as e:
+        print(e)
+
+
+def quit_driver(driver):
+    driver.quit()

@@ -22,3 +22,8 @@ def connect_to_wireguard(config_path: str) -> WireGuardConnector:
     wg_connector = WireGuardConnector(config_path)
     wg_connector.establish_connection()
     return wg_connector
+
+def force_close_wireguard() -> None:
+    subprocess.run(["taskkill", "/f", "/im", "wireguard.exe"], check=True)
+    print("WireGuard closed.")
+    subprocess.run(["wireguard"], check=True)

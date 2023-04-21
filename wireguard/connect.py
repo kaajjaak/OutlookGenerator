@@ -1,4 +1,4 @@
-from wireguard.WireGuardConnector import connect_to_wireguard
+from wireguard.WireGuardConnector import connect_to_wireguard, force_close_wireguard
 import os
 import random
 from util.files import random_connection
@@ -11,3 +11,7 @@ def start_random_connection():
 
 def close_connection(connection):
     connection.close_connection()
+
+
+def force_quit_connection():
+    force_close_wireguard()
