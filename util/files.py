@@ -16,7 +16,7 @@ def add_account(email, password):
 
 
 def random_connection():
-    folder_path = r"C:\Users\Jaak\Desktop\NERD\OutlookGenerator\wireguard_configs"
+    folder_path = os.path.abspath('./wireguard_configs')
 
     # Get a list of all the files in the folder
     files = [os.path.join(folder_path, f) for f in os.listdir(folder_path)]
