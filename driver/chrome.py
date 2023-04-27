@@ -21,6 +21,7 @@ options.add_experimental_option("excludeSwitches", ["enable-automation"])
 options.add_experimental_option('useAutomationExtension', False)
 options.add_argument("disable-blink-features=AutomationControlled")
 
+
 extension_path = r"./NopeCHA-CAPTCHA-Solver.crx"  # Replace with the correct path to your extension's CRX file
 options.add_extension(extension_path)
 

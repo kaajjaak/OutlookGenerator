@@ -9,7 +9,12 @@ from util.files import add_account
 
 
 def signup(driver, username, password):
-    driver.get("https://signup.live.com/signup")
+    try:
+        driver.get("https://signup.live.com/signup")
+    except TimeoutException:
+        driver.execute_script("window.stop();")
+    except Exception as e:
+        pass
     wait = WebDriverWait(driver, 10)
     wait.until(EC.element_to_be_clickable((By.ID, 'liveSwitch')))
     driver.find_element(By.ID, "liveSwitch").click()
@@ -49,17 +54,26 @@ def save_account(driver, username, password):
             except TimeoutException:
                 wait = WebDriverWait(driver, 3)
                 wait.until(EC.element_to_be_clickable((By.ID, 'idSIButton9')))
-                add_account(f"{username}@outlook.com", password)
+                wait = WebDriverWait(driver, 1)
+                try:
+                    wait = WebDriverWait(driver, 1)
+                    wait.until(EC.presence_of_element_located((By.ID, 'wlspispHipControlButtonsContainer')))
+                    return
+                except TimeoutException:
+                    add_account(f"{username}@outlook.com", password)
         except Exception as e:
-            print(e)
+            pass
 
 
 def close_driver(driver):
     try:
         driver.close()
     except Exception as e:
-        print(e)
+        pass
 
 
 def quit_driver(driver):
-    driver.quit()
+    try:
+        driver.quit()
+    except Exception as e:
+        pass
