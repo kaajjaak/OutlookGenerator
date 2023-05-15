@@ -2,6 +2,8 @@
 
 Outlook Generator is an automation tool that creates Outlook accounts and stores the email addresses and passwords of the generated accounts. This project leverages Selenium for web automation, the Nopecha extension to solve CAPTCHAs, and WireGuard to bypass IP limitations.
 
+# NOPECHA SEEMS TO BE PATCHED ON OUTLOOK CURRENTLY!
+
 ## Getting Started
 
 1. Clone the repository: `git clone https://github.com/kaajjaak/OutlookGenerator.git`
