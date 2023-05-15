@@ -3,6 +3,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
+import undetected_chromedriver as uc
 from selenium.webdriver.chrome.service import Service as ChromeService
 from dotenv import load_dotenv
 from selenium.webdriver.chrome.options import Options
@@ -33,7 +34,7 @@ chrome_service = ChromeService(executable_path=ChromeDriverManager().install())
 
 
 def setup_driver():
-    return webdriver.Chrome(service=chrome_service, options=options)
+    return uc.Chrome(service=chrome_service, options=options)
 
 
 def configure_extension(driver):
