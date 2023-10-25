@@ -24,3 +24,7 @@ Run the main.py file in Administrator (or sudo on Linux), this is required to in
 ## Author
 
 - [@Akina](https://www.github.com/kaajjaak)
+
+## License
+
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
